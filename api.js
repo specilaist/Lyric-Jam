@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+      let searched = [];
+
       function lyrics(artist, title) {
 
 		$.ajax({
@@ -15,9 +17,17 @@ $(document).ready(function(){
 		$.ajax({
 			url: `http://www.songsterr.com/a/ra/songs.json?pattern=${title}`
 		}).then(function (songs) {
+                  $('#possible').empty();
                   console.log(songs);
                   $.each(songs, function(_index, song){
                         console.log(song);
+                        const poppe = $('<button>');
+                        poppe.addClass('songBtns');
+                        poppe.attr('data-artist', song.artist.name);
+                        poppe.attr('data-title', song.title);
+                        poppe.text(song.artist.name + " - " + song.title);
+                        $('#possible').append(poppe);
+
                   })
                
 			// console.log(song.lyrics);
@@ -25,42 +35,47 @@ $(document).ready(function(){
       }
       
       function renderLyrics (lyrics) {
-            const song = $('<div>');
-            song.text(lyrics);
-            $('#songs').append(song)
+            console.log(lyrics);
+            $('#lyric').empty();
+            let searchedSong = $('<p>');
+            searchedSong.text(lyrics);
+            console.log(searchedSong);
+            $('#lyric').append(searchedSong);
       }
 
       function renderSimilarity (similar) {
-
-            console
             const similarDiv = $('<div>');
             similarDiv.text(similar)
-            $('#songs').append(similarDiv);
+            $('#possible').append(similarDiv);
       }
 
-	// lyrics('the police', 'roxanne');
-
-      // similarity('roxanne')
       
       $('#searchForm').on('submit', function(event) {
             event.preventDefault();
             const artist = $('#artist').val();
-            const title = $('#lyric').val();
+            const title = $('#lyricSearch').val();
             console.log(artist);
             console.log(title)
-            lyrics(artist, title);
+            // lyrics(artist, title);
             similarity(title);
       })
 
             
-      $('#searchFormBtn').on('click', function(event) {
+      $(document).on('click', '.songBtns', function(event) {
             event.preventDefault();
-            const artist = $('#artist').val();
-            const title = $('#lyric').val();
+            console.log($(this).attr('data-artist'));
+            console.log($(this).attr('data-title'));
+            const artist = $(this).attr('data-artist');
+            const title = $(this).attr('data-title');
             console.log(artist);
             console.log(title)
             lyrics(artist, title);
-            similarity(title);
+            // similarity(title);
+            localStorage.setItem('searchedArtist', JSON.stringify(artist));
+            localStorage.setItem('searchedTitle', JSON.stringify(title));
+
+
+
       })
 
 
