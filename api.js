@@ -14,9 +14,12 @@ $(document).ready(function(){
 
 		$.ajax({
 			url: `http://www.songsterr.com/a/ra/songs.json?pattern=${title}`
-		}).then(function (song) {
-                  console.log(song);
-                  renderSimilarity(song[0].tabTypes)
+		}).then(function (songs) {
+                  console.log(songs);
+                  $.each(songs, function(_index, song){
+                        console.log(song);
+                  })
+               
 			// console.log(song.lyrics);
 		});
       }
@@ -24,27 +27,45 @@ $(document).ready(function(){
       function renderLyrics (lyrics) {
             const song = $('<div>');
             song.text(lyrics);
-            $('body').append(song)
+            $('#songs').append(song)
       }
 
       function renderSimilarity (similar) {
 
+            console
             const similarDiv = $('<div>');
             similarDiv.text(similar)
-            $('body').append(similarDiv);
+            $('#songs').append(similarDiv);
       }
 
 	// lyrics('the police', 'roxanne');
 
       // similarity('roxanne')
       
-      $('#inputForm').on('submit', function(event) {
+      $('#searchForm').on('submit', function(event) {
             event.preventDefault();
             const artist = $('#artist').val();
-            const title = $('#title').val();
+            const title = $('#lyric').val();
+            console.log(artist);
+            console.log(title)
             lyrics(artist, title);
             similarity(title);
       })
+
+            
+      $('#searchFormBtn').on('click', function(event) {
+            event.preventDefault();
+            const artist = $('#artist').val();
+            const title = $('#lyric').val();
+            console.log(artist);
+            console.log(title)
+            lyrics(artist, title);
+            similarity(title);
+      })
+
+
+
+
 
 
 });
