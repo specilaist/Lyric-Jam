@@ -2,6 +2,20 @@ $(document).ready(function(){
 
       let searched = [];
 
+      function memoryList () {
+            let favorites = JSON.parse(localStorage.getItem('allEntries'))
+            console.log(favorites);
+            $.each(favorites, function(_index, favs) {
+                  console.log(favs);
+                  const favList = $('<button>');
+                  favList.text(favs.searchArtist + " - " + favs.searchedTitle);
+                  favList.addClass('favBtns');
+                  $('#favList').append(favList)
+            });
+      }
+
+      memoryList();
+
       function lyrics(artist, title) {
 
 		$.ajax({
@@ -29,15 +43,13 @@ $(document).ready(function(){
                         $('#possible').append(poppe);
 
                   })
-               
-			// console.log(song.lyrics);
 		});
       }
       
       function renderLyrics (lyrics) {
             console.log(lyrics);
             $('#lyric').empty();
-            let searchedSong = $('<p>');
+            let searchedSong = $('<div>');
             searchedSong.text(lyrics);
             console.log(searchedSong);
             $('#lyric').append(searchedSong);
@@ -71,17 +83,13 @@ $(document).ready(function(){
             console.log(title)
             lyrics(artist, title);
             // similarity(title);
-            localStorage.setItem('searchedArtist', JSON.stringify(artist));
-            localStorage.setItem('searchedTitle', JSON.stringify(title));
-
-
-
+            let searchedItems = {
+                  'searchArtist': artist,
+                  'searchedTitle': title,
+            }
+            searched.push(searchedItems);
+            localStorage.setItem('allEntries', JSON.stringify(searched));
+            memoryList()
       })
-
-
-
-
-
-
 });
 
