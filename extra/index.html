@@ -14,8 +14,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 <body class="w3-content" style="max-width:500px">
 
 <!-- Top menu on small screens -->
-<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
-  <div class="w3-bar-item w3-padding-24 w3-wide">LOGO</div>
+<header class="w3-bar w3-top w3-hide-large w3-lightblue w3-xlarge">
+  <div class="w3-bar-item w3-padding-24 w3-wide"> Lryic Jam </div>
   <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right"><i class="fa fa-bars"></i></a>
 </header>
 
@@ -26,8 +26,8 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <div class="w3-hide-large" style="margin-top:83px"></div>
   
   <!-- Top header -->
-  <header class="w3-container w3-xlarge">
-    <p class="w3-left">Lyrics</p>
+  <!-- <header class="w3-container w3-xlarge">
+    <p class="w3-left">Lyrics</p> -->
     
     <!-- <p class="w3-right">
       <button id="seach" class="fa fa-search"></button>
@@ -39,37 +39,34 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <div class="w3-container w3-panel w3-border  w3-round-xxlarge" style="background-color: #FCE2EE;">
 
     <div class="w3-container ">
-        <div class="w3-bar  w3-round-xlarge" style="background-color: #3de7d9  ;">
+        <div class="w3-bar  w3-round-xlarge" style="background-color: #3de7d9;">
             <a href="../index.html" class="w3-bar-item w3-button w3-hover-pale-red"><i class="fa fa-home" style="color:white;"></i></a>
-            <!-- <a href="extra/index.html" class="w3-bar-item w3-button w3-hover-pale-red"><i class="fa fa-search" style="color:white;"></i></a> -->
-         
-            <!-- <a href="https://google.com" class="w3-bar-item w3-button w3-hover-pale-red"><i class="fa fa-globe" style="color:white;"></i></a> -->
-            <!-- <a href="#" class="w3-bar-item w3-button w3-hover-pale-red"><i class="fa fa-sign-in" style="color:white;"></i></a> -->
+            <h7 style="color: white;">Lyric Jam</h7>
         </div>
-        <!-- <div class="w3-container w3-deep-orange">
-<p></p>
-  </div> -->
+
         <div id="btn">
           <div style="text-align: center;">
             <div id="favList" class="favorites"></div>
             <form id='searchForm'>
-              <input id="lyricSearch" type="text" placeholder="What Lyric?" class="searchLyricbox">
-              <input id="artist" type="text" placeholder="What Artist?" class="searchArtistbox">
-              <input id='searchFormBtn' type="submit" />
+              <input id="lyricSearch" class= "w3-round-xlarge"  type="text" placeholder="What Lyric?" class="searchLyricbox" style="margin-top: 10px;"/>
+              <input id="artist" class= "w3-round-xlarge" type="text" placeholder="What Artist?" class="searchArtistbox" style="margin-top: 10px;"/>
+              <input id='searchFormBtn' class= "w3-round-xlarge" type="submit" style="margin-bottom: 10px; margin-top: 10px;"/>
             </form>
-          </div>
+
           <div id="possible" class="possible"></div>
           <div id="songs" class="songs"></div>
           <div id="lyric" class="songs"></div>  
           
           <!-- where the output of the jscript goes -->
-          <div id="Text">
-            <output type="text" maxlength="400px" style="text-align: center;">
+          <output>
+          <div class="output" style="height:500px; width:430px; border:5px solid #3de7d9; font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+              THIS IS WHERE WE CAN HAVE OUR LYRICS GO. I JUST ADDED A BUNCH OF WORDS SO WE CAN SEE THE SCROLL BOX.
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ullam repudiandae id eligendi aperiam nobis accusamus, magnam voluptatibus molestias illo iure at ut quos aliquid commodi doloremque rerum, obcaecati tempora maiores voluptates. Ut, tempora non unde tempore optio commodi esse aut saepe ex ducimus asperiores laborum adipisci, blanditiis nobis autem molestias excepturi fugiat! Corporis totam omnis at inventore reiciendis aliquam fuga similique nesciunt iusto voluptas earum adipisci ut quas, voluptatum impedit sunt accusamus quisquam recusandae alias facere labore ullam consectetur eum vitae. Minima quidem ea perspiciatis deserunt doloremque, ipsum vitae officia consequatur dolorum alias fugit sequi recusandae earum in temporibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque assumenda accusamus laboriosam nostrum soluta, eaque libero similique a eius architecto, dignissimos ipsa asperiores consequuntur magnam, quis odio totam magni adipisci odit praesentium pariatur obcaecati aliquam suscipit inventore. Tempora cumque voluptatibus rem quibusdam cum odit, vitae voluptatem quos repudiandae earum sed hic nesciunt iusto ducimus doloremque placeat, ab dicta possimus quis doloribus facilis amet suscipit laborum expedita. Laborum ullam nulla, eum non delectus saepe quis minima ut. Quisquam, reiciendis, possimus veritatis quae totam eum magni sunt, beatae unde eligendi velit qui. Impedit ratione error dolore accusantium quis maxime, non totam unde.
           </div>
+        </output>
 
-            <p><button class="w3-button  w3-block w3-hover-aqua w3-padding-16 w3-round-xlarge" style="background-color:#3de7d9 ; color: white;">TAP
-                    TO START</button></p>
-                </div>
+            <!-- <p><button class="w3-button  w3-block w3-hover-aqua w3-padding-16 w3-round-xlarge" style="background-color:#3de7d9 ; color: white;">TAP TO START</button></p>
+                </div> -->
         
             <p class="w3-center" ><img src ="../images/60A38025-1A78-4E9B-8D44-5BC29FFE69E4.png" class="w3-hover-sepia " style ="width:300px;" >  </p>
         
