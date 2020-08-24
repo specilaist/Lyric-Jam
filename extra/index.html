@@ -11,7 +11,7 @@
 .w3-sidebar a {font-family: "Roboto", sans-serif}
 body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 </style>
-<body class="w3-content" style="max-width:1200px">
+<body class="w3-content" style="max-width:500px">
 
 <!-- Top menu on small screens -->
 <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
@@ -29,26 +29,59 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <header class="w3-container w3-xlarge">
     <p class="w3-left">Lyrics</p>
     
-    <p class="w3-right">
+    <!-- <p class="w3-right">
       <button id="seach" class="fa fa-search"></button>
-    </p>
+    </p> -->
   </header>
-  <div>
-    <div id="favList" class="favorites"></div>
-    <form id='searchForm'>
-      <input id="lyricSearch" type="text" placeholder="What Lyric?" class="searchLyricbox">
-      <input id="artist" type="text" placeholder="What Artist?" class="searchArtistbox">
-      <input id='searchFormBtn' type="submit" />
-    </form>
-  </div>
-  <div id="possible" class="possible"></div>
-  <div id="songs" class="songs"></div>
-  <div id="lyric" class="songs"></div>
 
+  <!-- <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div> -->
 
+  <div class="w3-container w3-panel w3-border  w3-round-xxlarge" style="background-color: #FCE2EE;">
 
+    <div class="w3-container ">
+        <div class="w3-bar  w3-round-xlarge" style="background-color: #3de7d9  ;">
+            <a href="../index.html" class="w3-bar-item w3-button w3-hover-pale-red"><i class="fa fa-home" style="color:white;"></i></a>
+            <!-- <a href="extra/index.html" class="w3-bar-item w3-button w3-hover-pale-red"><i class="fa fa-search" style="color:white;"></i></a> -->
+         
+            <!-- <a href="https://google.com" class="w3-bar-item w3-button w3-hover-pale-red"><i class="fa fa-globe" style="color:white;"></i></a> -->
+            <!-- <a href="#" class="w3-bar-item w3-button w3-hover-pale-red"><i class="fa fa-sign-in" style="color:white;"></i></a> -->
+        </div>
+        <!-- <div class="w3-container w3-deep-orange">
+<p></p>
+  </div> -->
+        <div id="btn">
+          <div style="text-align: center;">
+            <div id="favList" class="favorites"></div>
+            <form id='searchForm'>
+              <input id="lyricSearch" type="text" placeholder="What Lyric?" class="searchLyricbox">
+              <input id="artist" type="text" placeholder="What Artist?" class="searchArtistbox">
+              <input id='searchFormBtn' type="submit" />
+            </form>
+          </div>
+          <div id="possible" class="possible"></div>
+          <div id="songs" class="songs"></div>
+          <div id="lyric" class="songs"></div>  
+          
+          <!-- where the output of the jscript goes -->
+          <div id="Text">
+            <output type="text" maxlength="400px" style="text-align: center;">
+          </div>
 
-  <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
+            <p><button class="w3-button  w3-block w3-hover-aqua w3-padding-16 w3-round-xlarge" style="background-color:#3de7d9 ; color: white;">TAP
+                    TO START</button></p>
+                </div>
+        
+            <p class="w3-center" ><img src ="../images/60A38025-1A78-4E9B-8D44-5BC29FFE69E4.png" class="w3-hover-sepia " style ="width:300px;" >  </p>
+        
+    
+
+</div>
+<footer class="page-footer" style="text-align: center; font-size: 1rem; margin-top: 40px">
+    <div class="container">
+        <small>Made with <span>❤</span> by <a href="https://github.com/taradehdari" target="_blank">Tara Dehdari,</a> <a href="https://github.com/specilaist" target="_blank">Eban Cambridge,</a> <a href="https://github.com/setaremehr" target="_blank">Setare Mehr,</a> <a href="https://github.com/cruznt" target="_blank">Cruz Fragoza</a> 
+        </small>
+    </div>
+  </footer>
 
   <!-- End page content -->
 </div>
