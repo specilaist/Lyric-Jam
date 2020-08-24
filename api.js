@@ -98,12 +98,17 @@ $(document).ready(function(){
             console.log(title)
             lyrics(artist, title);
             // similarity(title);
-            let searched = JSON.parse(localStorage.getItem('allEntries'));
+            let allEntries = JSON.parse(localStorage.getItem('allEntries'));
+            console.log(allEntries);
             let searchedItems = {
                   'searchArtist': artist,
                   'searchedTitle': title,
             }
-            searched.push(searchedItems);
+            if (allEntries) {
+                  searched.push(searchedItems);
+            } else {
+                  localStorage.setItem('allEntries', []);
+            }
             localStorage.setItem('allEntries', JSON.stringify(searched));
             memoryList()
       });
@@ -125,14 +130,28 @@ $(document).ready(function(){
             event.preventDefault();
             console.log($(this));
             const removeFav = $(this).siblings();
+            const removeArtist = removeFav[0].dataset.artist;
+            const removeTitle = removeFav[0].dataset.title;
             console.log(removeFav);
+            let remove = JSON.parse(localStorage.getItem('allEntries'));
+            let updatedList = remove.filter(function(favorite) {
+                  // console.log(favorite);
+                  console.log(favorite.searchArtist);
+                  console.log(favorite.searchedTitle);
+                  console.log(removeFav[0].dataset.artist);
+                  console.log(removeFav[0].dataset.title);
+                  const removeStorageArtist = favorite.searchArtist;
+                  const removeStorageTitle = favorite.searchedTitle;
+                  if (removeArtist === removeStorageArtist && removeTitle === removeStorageTitle) {
+                        return false;
+                  } else {
+                        return true;
+                  };
 
-            // console.log($(this).attr('data-title'));
-      //       const artist = $(this).attr('data-artist');
-      //       const title = $(this).attr('data-title');
-      //       console.log(artist);
-      //       console.log(title)
-      //       lyrics(artist, title);
+            });
+            console.log(updatedList);
+            localStorage.setItem('allEntries', JSON.stringify(updatedList));
+            memoryList();
       });
 });
 
