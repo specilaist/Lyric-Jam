@@ -2,20 +2,34 @@ $(document).ready(function(){
 
       let searched = [];
 
+      // Creates a list from the local storage of buttons already searched
       function memoryList () {
+            $('#favList').empty();
             let favorites = JSON.parse(localStorage.getItem('allEntries'))
             console.log(favorites);
             $.each(favorites, function(_index, favs) {
                   console.log(favs);
+                  const favDiv = $('<div>');
+                  favDiv.addClass('favDiv');
                   const favList = $('<button>');
+                  favList.attr('data-artist', favs.searchArtist);
+                  favList.attr('data-title', favs.searchedTitle);
+                  const deleteButton = $('<button>');
+                  deleteButton.addClass('deleteBtns');
+                  const deleteIcon = $('<i>')
+                  deleteIcon.addClass('fa fa-close');
+                  deleteButton.append(deleteIcon);
                   favList.text(favs.searchArtist + " - " + favs.searchedTitle);
                   favList.addClass('favBtns');
-                  $('#favList').append(favList)
+                  favDiv.append(favList, deleteButton);
+                  $('#favList').append(favDiv);
             });
       }
 
       memoryList();
 
+
+      // AJAX request for lyrics
       function lyrics(artist, title) {
 
 		$.ajax({
@@ -26,6 +40,7 @@ $(document).ready(function(){
 		});
 	}
 
+      // This funtion will render similar songs and create buttons for those songs
 	function similarity (title) {
 
 		$.ajax({
@@ -46,6 +61,7 @@ $(document).ready(function(){
 		});
       }
       
+
       function renderLyrics (lyrics) {
             console.log(lyrics);
             $('#lyric').empty();
@@ -61,18 +77,17 @@ $(document).ready(function(){
             $('#possible').append(similarDiv);
       }
 
-      
+      // Onclick listener for search button
       $('#searchForm').on('submit', function(event) {
             event.preventDefault();
             const artist = $('#artist').val();
             const title = $('#lyricSearch').val();
             console.log(artist);
             console.log(title)
-            // lyrics(artist, title);
             similarity(title);
       })
 
-            
+      // Onclick listener for possible songs to render lyrics
       $(document).on('click', '.songBtns', function(event) {
             event.preventDefault();
             console.log($(this).attr('data-artist'));
@@ -83,6 +98,7 @@ $(document).ready(function(){
             console.log(title)
             lyrics(artist, title);
             // similarity(title);
+            let searched = JSON.parse(localStorage.getItem('allEntries'));
             let searchedItems = {
                   'searchArtist': artist,
                   'searchedTitle': title,
@@ -90,6 +106,33 @@ $(document).ready(function(){
             searched.push(searchedItems);
             localStorage.setItem('allEntries', JSON.stringify(searched));
             memoryList()
-      })
+      });
+
+      // Onclick listener for favorite Buttons for posting lyrics
+      $(document).on('click', '.favBtns', function(event) {
+            event.preventDefault();
+            console.log($(this).attr('data-artist'));
+            console.log($(this).attr('data-title'));
+            const artist = $(this).attr('data-artist');
+            const title = $(this).attr('data-title');
+            console.log(artist);
+            console.log(title)
+            lyrics(artist, title);
+      });
+
+      //Delete favBtns by selecting close button
+      $(document).on('click', '.deleteBtns', function(event) {
+            event.preventDefault();
+            console.log($(this));
+            const removeFav = $(this).siblings();
+            console.log(removeFav);
+
+            // console.log($(this).attr('data-title'));
+      //       const artist = $(this).attr('data-artist');
+      //       const title = $(this).attr('data-title');
+      //       console.log(artist);
+      //       console.log(title)
+      //       lyrics(artist, title);
+      });
 });
 
