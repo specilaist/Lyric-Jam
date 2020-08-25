@@ -44,7 +44,7 @@ $(document).ready(function(){
 	function similarity (title) {
 
 		$.ajax({
-			url: `http://www.songsterr.com/a/ra/songs.json?pattern=${title}`
+			url: `https://www.songsterr.com/a/ra/songs.json?pattern=${title}`
 		}).then(function (songs) {
                   $('#possible').empty();
                   console.log(songs);
@@ -135,8 +135,8 @@ $(document).ready(function(){
             const removeArtist = removeFav[0].dataset.artist;
             const removeTitle = removeFav[0].dataset.title;
             console.log(removeFav);
-            let remove = JSON.parse(localStorage.getItem('allEntries'));
-            let updatedList = remove.filter(function(favorite) {
+            // let remove = JSON.parse(localStorage.getItem('allEntries'));
+            searched = searched.filter(function(favorite) {
                   // console.log(favorite);
                   console.log(favorite.searchArtist);
                   console.log(favorite.searchedTitle);
@@ -151,8 +151,8 @@ $(document).ready(function(){
                   };
 
             });
-            console.log(updatedList);
-            localStorage.setItem('allEntries', JSON.stringify(updatedList));
+            console.log(searched);
+            localStorage.setItem('allEntries', JSON.stringify(searched));
             memoryList();
       });
 });
