@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-      let searched = [];
+      let searched = JSON.parse(localStorage.getItem('allEntries'));
 
       // Creates a list from the local storage of buttons already searched
       function memoryList () {
