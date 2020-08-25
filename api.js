@@ -4,7 +4,7 @@ $(document).ready(function(){
 
       // Creates a list from the local storage of buttons already searched
       function memoryList () {
-            $('#favList').empty();
+            // $('#favList').empty();
             let favorites = JSON.parse(localStorage.getItem('allEntries'))
             console.log(favorites);
             $.each(favorites, function(_index, favs) {
@@ -64,18 +64,18 @@ $(document).ready(function(){
 
       function renderLyrics (lyrics) {
             console.log(lyrics);
-            $('#lyric').empty();
-            let searchedSong = $('<div>');
+            $('#output').empty();
+            let searchedSong = $('<p>');
             searchedSong.text(lyrics);
             console.log(searchedSong);
-            $('#lyric').append(searchedSong);
+            $('#output').append(searchedSong);
       }
 
-      function renderSimilarity (similar) {
-            const similarDiv = $('<div>');
-            similarDiv.text(similar)
-            $('#possible').append(similarDiv);
-      }
+      // function renderSimilarity (similar) {
+      //       const similarDiv = $('<div>');
+      //       similarDiv.text(similar)
+      //       $('#possible').append(similarDiv);
+      // }
 
       // Onclick listener for search button
       $('#searchForm').on('submit', function(event) {
@@ -85,6 +85,7 @@ $(document).ready(function(){
             console.log(artist);
             console.log(title)
             similarity(title);
+            lyrics(artist, title);
       })
 
       // Onclick listener for possible songs to render lyrics
@@ -104,6 +105,7 @@ $(document).ready(function(){
                   'searchArtist': artist,
                   'searchedTitle': title,
             }
+            console.log(searchedItems)
             if (allEntries) {
                   searched.push(searchedItems);
             } else {
