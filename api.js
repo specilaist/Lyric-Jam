@@ -44,7 +44,7 @@ $(document).ready(function(){
 	function similarity (title) {
 
 		$.ajax({
-			url: `http://www.songsterr.com/a/ra/songs.json?pattern=${title}`
+			url: `https://www.songsterr.com/a/ra/songs.json?pattern=${title}`
 		}).then(function (songs) {
                   $('#possible').empty();
                   console.log(songs);
