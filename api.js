@@ -71,11 +71,11 @@ $(document).ready(function(){
             $('#output').append(searchedSong);
       }
 
-      function renderSimilarity (similar) {
-            const similarDiv = $('<div>');
-            similarDiv.text(similar)
-            $('#possible').append(similarDiv);
-      }
+      // function renderSimilarity (similar) {
+      //       const similarDiv = $('<div>');
+      //       similarDiv.text(similar)
+      //       $('#possible').append(similarDiv);
+      // }
 
       // Onclick listener for search button
       $('#searchForm').on('submit', function(event) {
@@ -85,6 +85,7 @@ $(document).ready(function(){
             console.log(artist);
             console.log(title)
             similarity(title);
+            lyrics(artist, title);
       })
 
       // Onclick listener for possible songs to render lyrics
