@@ -64,11 +64,11 @@ $(document).ready(function(){
 
       function renderLyrics (lyrics) {
             console.log(lyrics);
-            $('#lyric').empty();
-            let searchedSong = $('<div>');
+            $('#output').empty();
+            let searchedSong = $('<p>');
             searchedSong.text(lyrics);
             console.log(searchedSong);
-            $('#lyric').append(searchedSong);
+            $('#output').append(searchedSong);
       }
 
       function renderSimilarity (similar) {
@@ -104,6 +104,7 @@ $(document).ready(function(){
                   'searchArtist': artist,
                   'searchedTitle': title,
             }
+            console.log(searchedItems)
             if (allEntries) {
                   searched.push(searchedItems);
             } else {
