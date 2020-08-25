@@ -4,7 +4,7 @@ $(document).ready(function(){
 
       // Creates a list from the local storage of buttons already searched
       function memoryList () {
-            // $('#favList').empty();
+            $('#favList').empty();
             let favorites = JSON.parse(localStorage.getItem('allEntries'))
             console.log(favorites);
             $.each(favorites, function(_index, favs) {
