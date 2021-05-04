@@ -16,7 +16,7 @@ First we brainstormed by looking through the list of API’s and determining whi
 
 Then we thought about how to set up the code for such an application. We wanted to start with the user and grab their input. Then we ran user input into the Songsterr API which gave us an array of like songs. We grab the elements of the title and artist for all the songs that Songsterr provides. We created a button for each element in the Songsterr array. On the ‘click’ listener for the document put the title and artist of the button we select into the local storage. A button is created in the favs <div> that is generated from local storage.
 
-![Screenshot of Code](images/ezgif.com-video-to-gif.gif)
+![Screenshot of Code](images/favScreenshot.png)
 
 Whenever any of the buttons are clicked the lyrics are rendered to the scroll search. This can be done over and over. We wanted to make sure to make it so people would have to manually delete a song in order to remove it from the Favorite list because we don’t want people to forget it and not be able to find it later.
 
